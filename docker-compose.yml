@@ -1,0 +1,14 @@
+version: "3"
+services:
+  backend:
+    build: ./backend
+    container_name: cup_handle_backend
+    ports:
+      - "10000:10000"
+  frontend:
+    build: ./frontend
+    container_name: cup_handle_frontend
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
