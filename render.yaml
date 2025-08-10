@@ -1,0 +1,27 @@
+version: "1"
+services:
+  - type: web
+    name: backend
+    env: docker
+    dockerfilePath: ./backend/Dockerfile
+    plan: free
+    envVars:
+      - key: PORT
+        value: 10000
+    autoDeploy: true
+    region: oregon
+    repo: https://github.com/donegaldiehard-code/cup-handle-signals-app
+    branch: main
+
+  - type: web
+    name: frontend
+    env: docker
+    dockerfilePath: ./frontend/Dockerfile
+    plan: free
+    envVars:
+      - key: PORT
+        value: 80
+    autoDeploy: true
+    region: oregon
+    repo: https://github.com/donegaldiehard-code/cup-handle-signals-app
+    branch: main
